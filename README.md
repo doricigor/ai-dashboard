@@ -10,7 +10,7 @@ It allows users to:
 
 ## 🚀 Installation
 
-Install my-project with npm
+Install ai-dashboard with npm
 
 Clone the repo:
 
