@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# 🧠 AI Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple AI-powered report generation app built with React and TypeScript.
 
-Currently, two official plugins are available:
+It allows users to:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Create and edit reports using a rich text editor
+- Use AI to generate drafts or summarize content
+- Track when AI was used to assist writing
 
-## Expanding the ESLint configuration
+## 🚀 Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Install my-project with npm
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Clone the repo:
+
+```bash
+  git clone https://github.com/doricigor/ai-dashboard.git
+  cd ai-dashboard
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+  npm install
 ```
+
+Create a .env file:
+
+```bash
+  VITE_OPENAI_API_KEY=your_openai_key_here
+```
+
+Run the development server:
+
+```bash
+  npm run dev
+```
+
+## 🔧 Usage/Examples
+
+```javascript
+Click "New Report" to start writing.
+
+Enter a title and use the editor to write content.
+
+(Optional) Use the AI prompt field to generate a draft.
+
+Save your report to store it locally.
+
+You can also preview reports in read-only mode.
+
+Drag-and-drop is enabled to reorder reports.
+```
+
+## ✨ Features
+
+- AI-powered draft generation using OpenAI
+- AI-powered content summarization
+- Rich text editing with formatting
+- Activity tracking (created, edited, AI used)
+- Role-based actions (e.g., only admins can create reports)
+- LocalStorage - based persistence
+
+## 🐞 Known Issues
+
+- AI integration depends on a valid OpenAI key and available quota.
+- No backend – data is stored in browser's LocalStorage.
