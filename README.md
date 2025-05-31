@@ -25,7 +25,7 @@ Install dependencies:
   npm install
 ```
 
-Create a .env file:
+Open the existing .env file and add your OpenAI API key:
 
 ```bash
   VITE_OPENAI_API_KEY=your_openai_key_here
@@ -39,19 +39,12 @@ Run the development server:
 
 ## 🔧 Usage/Examples
 
-```javascript
-Click "New Report" to start writing.
-
-Enter a title and use the editor to write content.
-
-(Optional) Use the AI prompt field to generate a draft.
-
-Save your report to store it locally.
-
-You can also preview reports in read-only mode.
-
-Drag-and-drop is enabled to reorder reports.
-```
+- Click "New Report" to start writing.
+- Enter a title and use the editor to write content.
+- (Optional) Use the AI prompt field to generate a draft.
+- Save your report to store it locally.
+- You can also preview reports in read-only mode.
+- Drag-and-drop is enabled to reorder reports.
 
 ## ✨ Features
 
