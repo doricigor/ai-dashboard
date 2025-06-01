@@ -14,7 +14,6 @@ interface ReportContextType {
   deleteReport: (id: string) => void;
   reorderReports: (newOrder: Report[]) => void;
   addReport: (title: string, content: string, aiUsedAt?: string) => void;
-  clearReports: () => void;
   updateReport: (
     id: string,
     title: string,
@@ -88,10 +87,6 @@ export const ReportProvider = ({ children }: { children: ReactNode }) => {
     setReports(newOrder);
   };
 
-  const clearReports = () => {
-    setReports([]);
-  };
-
   return (
     <ReportContext.Provider
       value={{
@@ -100,7 +95,6 @@ export const ReportProvider = ({ children }: { children: ReactNode }) => {
         updateReport,
         deleteReport,
         reorderReports,
-        clearReports,
       }}
     >
       {children}

@@ -39,12 +39,20 @@ Run the development server:
 
 ## 🔧 Usage/Examples
 
-- Click "New Report" to start writing.
-- Enter a title and use the editor to write content.
-- (Optional) Use the AI prompt field to generate a draft.
-- Save your report to store it locally.
-- You can also preview reports in read-only mode.
-- Drag-and-drop is enabled to reorder reports.
+### 👤 Admin
+
+- Click **"New Report"** to start writing.
+- Enter a **title** and use the **rich text editor** to write content.
+- _(Optional)_ Use the **AI prompt** field to generate a draft or summarize content.
+- **Save** your report to store it locally.
+- **Drag-and-drop** is enabled to reorder reports.
+- You can also **edit** or **delete** existing reports.
+
+### 👀 Viewer
+
+- Can **view** existing reports in **read-only mode**.
+- Can **search** and **filter** reports by title.
+- Cannot create, edit, delete, or reorder reports.
 
 ## ✨ Features
 

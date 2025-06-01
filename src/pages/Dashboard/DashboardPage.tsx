@@ -22,14 +22,8 @@ const Dashboard = () => {
   const [reportToDelete, setReportToDelete] = useState<Report | null>(null);
 
   const { user, logout } = useAuth();
-  const {
-    reports,
-    addReport,
-    reorderReports,
-    deleteReport,
-    updateReport,
-    clearReports,
-  } = useReportContext();
+  const { reports, addReport, reorderReports, deleteReport, updateReport } =
+    useReportContext();
 
   const filteredReports = reports.filter((report) =>
     report.title.toLowerCase().includes(search.toLowerCase())
@@ -76,7 +70,6 @@ const Dashboard = () => {
   };
 
   const handleLogout = () => {
-    clearReports();
     logout();
   };
 
@@ -127,14 +120,28 @@ const Dashboard = () => {
       )}
 
       <Stack spacing={2}>
-        <DndContext
-          collisionDetection={closestCenter}
-          onDragEnd={handleDragEnd}
-        >
-          <SortableContext
-            items={reports.map((report) => report.id)}
-            strategy={verticalListSortingStrategy}
+        {user?.role === "admin" ? (
+          <DndContext
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
           >
+            <SortableContext
+              items={reports.map((report) => report.id)}
+              strategy={verticalListSortingStrategy}
+            >
+              {filteredReports.map((report: Report) => (
+                <ReportCard
+                  key={report.id}
+                  report={report}
+                  onView={(report) => openModal(ModalMode.PREVIEW, report)}
+                  onEdit={(report) => openModal(ModalMode.EDIT, report)}
+                  onDelete={(report) => handleDelete(report)}
+                />
+              ))}
+            </SortableContext>
+          </DndContext>
+        ) : (
+          <>
             {filteredReports.map((report: Report) => (
               <ReportCard
                 key={report.id}
@@ -144,8 +151,8 @@ const Dashboard = () => {
                 onDelete={(report) => handleDelete(report)}
               />
             ))}
-          </SortableContext>
-        </DndContext>
+          </>
+        )}
       </Stack>
 
       {isReportModalOpen && (
